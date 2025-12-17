@@ -1,11 +1,10 @@
 from math import factorial
 from flask import Flask, request, jsonify
 # Import our new DB manager
-from db_client import DBClient
-
+from databases.db_manager import DBManager
 app = Flask(__name__)
 # Initialize DB connection
-db = DBClient()
+db = DBManager()
 
 # Stack remains in memory as per instructions (only operations are persisted)
 stack = []
