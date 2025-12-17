@@ -1,0 +1,28 @@
+version: '3'
+services:
+  # Your Application
+  calculator-server:
+    build: .
+    ports:
+      - "4785:8496"  # External Port (4785) : Internal Port (8496)
+    environment:
+      - POSTGRES_HOST=postgres-db
+      - MONGO_HOST=mongo-db
+    depends_on:
+      - postgres-db
+      - mongo-db
+
+  # Postgres Database (Instructor's Image)
+  # Works on Windows (Native) and Mac (Rosetta Emulation)
+  postgres-db:
+    image: theshultz/kaplat-calculator-postgres-instance:latest
+    platform: linux/amd64
+    ports:
+      - "5432:5432"
+
+  # Mongo Database (Generic Official Image)
+  # Works on BOTH Mac (Apple Silicon) and Windows
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"

@@ -1,6 +1,6 @@
 # Import the specialized drivers
-from postgres_driver import PostgresDriver
-from mongo_driver import MongoDriver
+from .postgres_driver import PostgresDriver
+from .mongo_driver import MongoDriver
 
 
 class DBManager:

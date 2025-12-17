@@ -1,8 +1,7 @@
 from math import factorial
 from flask import Flask, request, jsonify
 # Import our new DB manager
-from db_manager import DBManager
-
+from databases.db_manager import DBManager
 app = Flask(__name__)
 # Initialize DB connection
 db = DBManager()
